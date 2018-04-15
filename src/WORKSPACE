@@ -21,12 +21,21 @@ git_repository(
 load(
         "@io_bazel_rules_go//go:def.bzl",
         "go_rules_dependencies",
-        "go_register_toolchains"
+        "go_register_toolchains",
+        "go_repository"
 )
 
 go_rules_dependencies()
 go_register_toolchains(
     go_version = "1.10.1",
+)
+
+# Ensure @org_golang_google_grpc matches my vendored copy
+go_repository(
+    name = "org_golang_google_grpc",
+    importpath = "google.golang.org/grpc",
+    commit = "95869d0274dc5f61cad15f9ef42e060b9c9e0a3a",
+    build_file_proto_mode = "disable"
 )
 
 #
