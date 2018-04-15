@@ -25,7 +25,10 @@
 #   unused-packages = true
 
 # gogoproto is accessed by the @gogo_special_proto when the proto is built
-required = ["github.com/gogo/protobuf/gogoproto"]
+required = [
+	"github.com/gogo/protobuf/gogoproto",
+	"golang.org/x/net/context",
+]
 
 [prune]
   go-tests = true
